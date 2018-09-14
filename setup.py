@@ -16,7 +16,7 @@ setup(
     long_description=readme,
     author='Naoto MINAMI',
     author_email='minami.polly@gmail.com',
-    install_requires=['numpy', 'scikit-learn', 'PIL', 'tensorflow'],
+    install_requires=['numpy', 'scikit-learn', 'pillow', 'tensorflow'],
     url='',
     license=license,
     packages=find_packages(exclude=('tests', 'examples'))

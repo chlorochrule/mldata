@@ -50,7 +50,7 @@ def select_data(data, label, n_data=None, i_dataset=0, same_size=True):
         return shuffle(res_data, res_label)
 
 
-def load_datasets(datasets, is_tuning=False, tuning_rate=0.5):
+def load_datasets(datasets):
 
     if datasets == 'mnist':
         mnist = fetch_mldata('MNIST original', data_home=DATA_DIR)
@@ -117,20 +117,13 @@ def load_datasets(datasets, is_tuning=False, tuning_rate=0.5):
 
     data, label = shuffle(data, label)
 
-    if is_tuning:
-        thres = int(data.shape[0] * tuning_rate)
-        return data[:thres, :], label[:thres], data[thres:, :], label[thres:]
-    else:
-        return data, label
+    return data, label
 
 
 def main():
     datasets = ['mnist', 'coil20', 'eth80', 'fashion', 'yale']
     for dataset in datasets:
         print(dataset)
-        data, label = load_datasets(dataset)
-        print(data.shape)
-        print(label.shape)
         data, label = load_datasets(dataset)
         print(data.shape)
         print(label.shape)
